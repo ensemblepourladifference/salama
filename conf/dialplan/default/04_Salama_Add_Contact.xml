@@ -1,0 +1,8 @@
+<include>
+  <extension name="salama_manager_contacts">
+    <condition field="destination_number" expression="^335$">
+      <action application="answer"/>
+      <action application="ivr" data="salama_manager_contacts"/>
+    </condition>
+  </extension>
+</include>

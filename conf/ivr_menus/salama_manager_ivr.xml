@@ -1,0 +1,13 @@
+<menu name="salama_manager_ivr"
+  greet-long="phrase:salama_manager_greeting:long"
+  greet-short="phrase:salama_manager_greeting:short"
+  invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+  confirm-attempts="3"
+  timeout="10000"
+  inter-digit-timeout="2000"
+  max-failures="3"
+  max-timeouts="3"
+  digit-len="1">
+    <entry action="menu-exec-app" digits="1" param="transfer 334 XML default"/> 
+    <entry action="menu-top" digits="2"/>
+</menu>

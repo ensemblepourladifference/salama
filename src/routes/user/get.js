@@ -9,18 +9,20 @@ const User = require('../../model/user');
 
 module.exports = (request, reply) => {
 
-    User.fetchAll({ withRelated:['dialplans'] })
+    User
+        .where('id', request.params.id)
+        .fetch({ withRelated:['dialplans'] })
         .then((user) => {
 
             if (!user) {
-                reply(Boom.badRequest('No users available.'));
+                reply(Boom.badRequest('No user available.'));
             }
             else {
-                const data = {
-                    message: 'users success',
+                const responseData = {
+                    message: 'user success',
                     user
                 };
-                reply(data);
+                reply(responseData);
             }
         })
         .catch((err) => {

@@ -1,0 +1,18 @@
+<macro name="whoami">
+  <input pattern="^(\d+)$">
+    <match>
+      <action function="play-file"
+      data="ivr/1-7-you-entered.wav"/>
+      <action function="sleep"
+      data="100"/>
+      <action function="say"
+      data="$1"
+      method="pronounced"
+      type="number"/>
+    </match>
+    <nomatch>
+      <action function="play-file"
+      data="ivr/ivr-that_was_an_invalid_entry.wav"/>
+    </nomatch>
+  </input>
+</macro>

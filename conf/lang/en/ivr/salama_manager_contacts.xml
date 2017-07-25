@@ -1,0 +1,72 @@
+<macro name="salama_manager_contacts">
+  <input pattern="^(long)$" break-on-match="true">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/thank-you.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="/tmp/name-${username}.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press-one-name-change.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press-two-add-contact.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <!-- Press to hear again -->
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/3.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="ivr/1-3b.wav"/>
+    </match>
+  </input>
+  <input pattern="^(short)$">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/thank-you.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="/tmp/name-${username}.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press-one-name-change.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press-two-add-contact.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <!-- Press to hear again -->
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/3.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="ivr/1-3b.wav"/>
+    </match>
+  </input>
+</macro>

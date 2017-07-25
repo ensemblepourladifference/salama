@@ -1,0 +1,100 @@
+<macro name="salama_manager_record_number">
+  <input pattern="^(long)$" break-on-match="true">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-5.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <!-- Record inserted number -->
+      <!-- <action application="play_and_get_digits" data="2 5 3 7000 # $${base_dir}/sounds/en/us/callie/conference/8000/conf-pin.wav /invalid.wav foobar \d+"/> -->
+      <action application="play_and_get_digits" data="4 4 3 7000 # ivr/1-6.wav ivr/ivr-that_was_an_invalid_entry.wav foobar \d+"/>
+      <action application="log" data="CRIT ${foobar}"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-7-you-entered.wav"/>
+      <!-- Re-play inserted number -->
+
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-7a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-8a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/2.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-8b.wav"/>
+      <!-- 1 to confirm, 2 to delete -->
+    </match>
+  </input>
+  <input pattern="^(short)$">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-5.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-6.wav"/>
+      <!-- Record inserted number -->
+
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-7-you-entered.wav"/>
+      <!-- Re-play inserted number -->
+
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-7a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-8a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/2.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-8b.wav"/>
+      <!-- 1 to confirm, 2 to delete -->
+    </match>
+  </input>
+</macro>

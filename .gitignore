@@ -1,5 +1,44 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# freeswitch
+/bin
+/certs
+/db
+/fonts
+/grammar
+/htdocs
+/images
+/include
+/lib
+/log
+/mod
+/recordings
+/run
+/sounds
+/storage
+/conf/autoload_configs
+/conf/chatplan
+/conf/directory
+/conf/extensions.conf
+/conf/freeswitch.xml
+/conf/fur_elise.ttml
+/conf/jingle_profiles
+/conf/lang/de
+/conf/lang/es
+/conf/lang/he
+/conf/lang/pt
+/conf/lang/ru
+/conf/lang/sv
+/conf/mime.types
+/conf/mrcp_profiles
+/conf/notify-voicemail.tpl
+/conf/sip_profiles
+/conf/skinny_profiles
+/conf/tetris.ttml
+/conf/vars.xml
+/conf/voicemail.tpl
+/conf/web-vm.tpl
+
 # dependencies
 /node_modules
 

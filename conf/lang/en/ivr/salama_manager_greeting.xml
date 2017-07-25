@@ -1,0 +1,70 @@
+<macro name="salama_manager_greeting">
+  <input pattern="^(long)$" break-on-match="true">
+    <match>
+      <action function="sleep"
+        data="1000"/>
+      <action function="play-file"
+        data="ivr/ivr-good_${tod}.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-1-this-is-salama.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-2.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="ivr/1-3a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/2.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="ivr/1-3b.wav"/>
+    </match>
+  </input>
+  <input pattern="^(short)$">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="ivr/1-3a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/2.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="ivr/1-3b.wav"/>
+    </match>
+  </input>
+</macro>

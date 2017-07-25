@@ -1,0 +1,11 @@
+<include>
+  <extension name="salama_manager_record_contacts">
+    <condition field="destination_number" expression="^336$">
+      <action application="answer"/>
+      <!-- Record inserted number -->
+      <!-- <action application="play_and_get_digits" data="2 5 3 7000 # $${base_dir}/sounds/en/us/callie/conference/8000/conf-pin.wav /invalid.wav foobar \d+"/> -->
+      <action application="set" data="username=${username}"/>
+      <action application="lua" data="$${base_dir}/scripts/salama/add_contact.lua"/>
+    </condition>
+  </extension>
+</include>

@@ -1,0 +1,8 @@
+<include>
+  <extension name="salama_signup">
+    <condition field="destination_number" expression="^333$">
+      <action application="answer"/>
+      <action application="ivr" data="salama_manager_ivr"/>
+    </condition>
+  </extension>
+</include>

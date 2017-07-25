@@ -23,7 +23,7 @@ exports.register = (server, options, next) => {
 
     server.route({
 
-        path: '/users',
+        path: '/users/{id}',
         method: 'GET',
         config: {
             description: 'Route to get users.',

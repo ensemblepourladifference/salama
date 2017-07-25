@@ -1,0 +1,68 @@
+<macro name="salama_manager_add_another">
+  <input pattern="^(long)$" break-on-match="true">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-9.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-10a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/2.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-10b.wav"/>
+      <!-- 1 to add another, 2 to finish -->
+    </match>
+  </input>
+  <input pattern="^(short)$">
+    <match>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/1-9.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-10a.wav"/>
+      <action function="sleep"
+        data="500"/>
+      <action function="play-file"
+        data="ivr/press.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/2.wav"/>
+      <action function="sleep"
+        data="250"/>
+      <action function="play-file"
+        data="digits/1-10b.wav"/>
+      <!-- 1 to add another, 2 to finish -->
+    </match>
+  </input>
+</macro>

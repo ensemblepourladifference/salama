@@ -10,7 +10,7 @@ const User = require('../../model/user');
 module.exports = (request, reply) => {
 
     User
-        .where('id', request.params.id)
+        .where('extension', request.params.extension)
         .fetch({ withRelated:['dialplans'] })
         .then((user) => {
 

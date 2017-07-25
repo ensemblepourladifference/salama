@@ -7,7 +7,7 @@
 import bookshelf from '../bookshelf';
 
 const Dialplan = bookshelf.Model.extend({
-    tableName: 'dialplans',
+    tableName: 'dialplans'
 });
 
 module.exports = bookshelf.model('Dialplan', Dialplan);

@@ -8,10 +8,8 @@
 const Joi = require('joi');
 
 const dialplanSchema = Joi.object().keys({
-    email: Joi.string(),
-    uuid:  Joi.string(),
     extensions:  Joi.string(),
-    user_id:  Joi.number()
+    user_extension:  Joi.string()
 });
 
 
@@ -47,7 +45,10 @@ exports.register = (server, options, next) => {
                 }
             },
             validate: {
-                payload: dialplanSchema
+                params: {
+                    extensions: Joi.string(),
+                    user_extension: Joi.string()
+                }
             }
         },
         handler: require('./post')

@@ -6,7 +6,7 @@ exports.up = function (knex, Promise) {
         table.string('email').nullable().unique();
         table.string('username').nullable().unique();
         table.string('password').nullable();
-        table.string('extension').nullable();
+        table.string('extension').nullable().unique();
         table.string('given').nullable();
         table.string('family').nullable();
         table.string('uuid').nullable();
@@ -19,7 +19,7 @@ exports.up = function (knex, Promise) {
 
             table.increments('id').primary();
             table.string('uuid').nullable();
-            table.string('extensions').nullable();
+            table.string('extensions').nullable().unique();
             table.integer('user_id').references('users.id');
         });
 

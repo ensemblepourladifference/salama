@@ -14,7 +14,7 @@ const User = bookshelf.Model.extend({
     tableName: 'users',
     dialplans: function () {
 
-        return this.hasMany(Claims, 'user_id');
+        return this.hasMany(Dialplans, 'user_id');
     },
     hasTimestamps: true
 });

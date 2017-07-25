@@ -23,7 +23,7 @@ exports.register = (server, options, next) => {
 
     server.route({
 
-        path: '/users/{id}',
+        path: '/users/{extension}',
         method: 'GET',
         config: {
             description: 'Route to get users.',
@@ -50,7 +50,9 @@ exports.register = (server, options, next) => {
                 }
             },
             validate: {
-                payload: userSchema
+                params: {
+                    extension: Joi.string()
+                }
             }
         },
         handler: require('./post')

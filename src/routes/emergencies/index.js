@@ -7,16 +7,30 @@
 
 const Joi = require('joi');
 
+const emergencyCreateSchema = Joi.object().keys({
+    auditPath:  Joi.string(),
+    toBeContacted:  Joi.string(),
+    user_id:  Joi.number()
+});
+
+
+const emergencyUpdateSchema = Joi.object().keys({
+    contacted:  Joi.string(),
+    active:  Joi.boolean(),
+    cancelled:  Joi.boolean(),
+    user_id:  Joi.number()
+});
+
 
 
 exports.register = (server, options, next) => {
 
     server.route({
 
-        path: '/dialplan/{id}',
+        path: '/emergencies/{id}',
         method: 'GET',
         config: {
-            description: 'Route to get dialplans.',
+            description: 'Route to get emergencies.',
             tags: ['api'],
             plugins: {
                 'hapi-swagger': {
@@ -29,10 +43,10 @@ exports.register = (server, options, next) => {
 
     server.route({
 
-        path: '/dialplan',
+        path: '/emergencies',
         method: 'POST',
         config: {
-            description: 'PRoute to create a dialplan.',
+            description: 'Route to create emergencies.',
             tags: ['api'],
             plugins: {
                 'hapi-swagger': {
@@ -40,9 +54,7 @@ exports.register = (server, options, next) => {
                 }
             },
             validate: {
-                params: {
-                    extensions: Joi.string()
-                }
+                params: emergencyCreateSchema
             }
         },
         handler: require('./post')
@@ -50,10 +62,10 @@ exports.register = (server, options, next) => {
 
     server.route({
 
-        path: '/dialplan/{id}',
+        path: '/emergencies/{id}',
         method: 'PUT',
         config: {
-            description: 'Protected route to update a dialplan.',
+            description: 'Protected route to update a emergencies.',
             tags: ['api'],
             plugins: {
                 'hapi-swagger': {
@@ -62,32 +74,19 @@ exports.register = (server, options, next) => {
             },
             validate: {
                 params: {
-                    extensions: Joi.string()
+                    id: Joi.string()
+                },
+                payload: {
+                    cancelled: Joi.string()
                 }
             }
         },
         handler: require('./put')
     });
 
-    server.route({
-
-        path: '/dialplan/{id}',
-        method: 'DELETE',
-        config: {
-            description: 'Protected route to delete an extension.',
-            tags: ['api'],
-            plugins: {
-                'hapi-swagger': {
-                    payloadType: 'form'
-                }
-            }
-        },
-        handler: require('./delete')
-    });
-
     next();
 };
 
 exports.register.attributes = {
-    name: 'dialplan-routes'
+    name: 'emergencies-routes'
 };

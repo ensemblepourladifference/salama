@@ -1,11 +1,11 @@
 <include>
-  <extension name="salama_signup">
-    <condition field="destination_number" expression="^333$">
+  <extension name="salama_manager_existing_user">
+    <condition field="destination_number" expression="^338$">
       <action application="answer"/>
       <action application="set" data="default_language=en"/>
       <action application="set" data="username=${username}"/>
       <action application="set" data="base_dir=$${base_dir}"/>
-      <action application="lua" data="$${base_dir}/scripts/salama/salama_manager.lua"/>
+      <action application="lua" data="$${base_dir}/scripts/salama/existing_user.lua"/>
     </condition>
   </extension>
 </include>

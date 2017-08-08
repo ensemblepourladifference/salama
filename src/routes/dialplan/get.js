@@ -10,8 +10,8 @@ const Dialplan = require('../../model/dialplan');
 module.exports = (request, reply) => {
 
     Dialplan
-        .where('id', request.params.id)
-        .fetch()
+        .where('user_id', request.params.id)
+        .fetchAll()
         .then((dialplan) => {
 
             if (!dialplan) {

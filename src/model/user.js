@@ -15,8 +15,7 @@ const User = bookshelf.Model.extend({
     dialplans: function () {
 
         return this.hasMany(Dialplans, 'user_id');
-    },
-    hasTimestamps: true
+    }
 });
 
 module.exports = bookshelf.model('User', User);

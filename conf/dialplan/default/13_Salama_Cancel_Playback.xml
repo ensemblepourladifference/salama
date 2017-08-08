@@ -1,13 +1,13 @@
 <include>
-  <extension name="salama_manager_record_contacts">
-    <condition field="destination_number" expression="^336$">
+  <extension name="salama_cancel_playback">
+    <condition field="destination_number" expression="^223$">
       <action application="answer"/>
       <action application="set" data="default_language=en"/>
       <!-- Record inserted number -->
       <!-- <action application="play_and_get_digits" data="2 5 3 7000 # $${base_dir}/sounds/en/us/callie/conference/8000/conf-pin.wav /invalid.wav foobar \d+"/> -->
       <action application="set" data="username=${username}"/>
       <action application="set" data="base_dir=$${base_dir}"/>
-      <action application="lua" data="$${base_dir}/scripts/salama/add_contact.lua"/>
+      <action application="lua" data="$${base_dir}/scripts/salama/cancel_emergency_playback.lua"/>
     </condition>
   </extension>
 </include>

@@ -8,7 +8,7 @@
       <action function="sleep"
         data="250"/>
       <action function="play-file"
-        data="/tmp/name-${username}.wav"/>
+        data="/var/freeswitch-audio/salama/name-${username}.wav"/>
       <action function="sleep"
         data="500"/>
       <action function="play-file"
@@ -43,7 +43,7 @@
       <action function="sleep"
         data="250"/>
       <action function="play-file"
-        data="/tmp/name-${username}.wav"/>
+        data="/var/freeswitch-audio/salama/name-${username}.wav"/>
       <action function="sleep"
         data="500"/>
       <action function="play-file"

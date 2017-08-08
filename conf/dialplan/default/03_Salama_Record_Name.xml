@@ -2,10 +2,11 @@
   <extension name="salama_record_name">
     <condition field="destination_number" expression="^334$">
       <action application="answer"/>
+      <action application="set" data="default_language=en"/>
       <action application="playback" data="ivr/1-4.wav"/>
       <action application="playback" data="ivr/to-finish-record-press-star.wav"/>
       <action application="set" data="playback_terminators=*"/>
-      <action application="record" data="/tmp/name-${username}.wav 20 200" />
+      <action application="record" data="/var/freeswitch-audio/salama/name-${username}.wav 20 200" />
       <action application="transfer" data="335 XML default"/>
     </condition>
   </extension>

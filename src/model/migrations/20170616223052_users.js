@@ -21,6 +21,18 @@ exports.up = function (knex, Promise) {
             table.string('uuid').nullable();
             table.string('extensions').nullable().unique();
             table.integer('user_id').references('users.id');
+        })
+        .createTable('emergencies', (table) => {
+
+            table.increments('id').primary();
+            table.string('uuid').nullable();
+            table.string('auditPath').nullable();
+            table.string('toBeContacted').nullable();
+            table.string('contacted').nullable();
+            table.boolean('active').nullable().defaultTo(true);
+            table.boolean('cancelled').nullable().defaultTo(false);
+            table.integer('user_id').references('users.id');
+            table.timestamps();
         });
 
 };

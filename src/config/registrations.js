@@ -79,6 +79,16 @@ const internals = {
                     prefix: '/api'
                 }
             }
+        },
+        // Emergencies routes
+        {
+            plugin: './routes/emergencies',
+            options: {
+                select: ['api'],
+                routes: {
+                    prefix: '/api'
+                }
+            }
         }
     ]
 };

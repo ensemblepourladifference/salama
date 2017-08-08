@@ -48,20 +48,9 @@ def main(argv):
         print(userExtension)
         emergencyContacts = toBeContacted.split(',')
         for user in emergencyContacts:
-            print(user)
-            registrationXML = con.api('sofia xmlstatus profile internal reg')
-            registeredUsers = ElementTree.fromstring(registrationXML.getBody())
-            for registration in registeredUsers[0]:
-                contact = registration.find('sip-auth-user').text
-                sip = registration.find('contact').text
-                print(sip)
-                if user == contact:
-                    startString = '"" <sip:'
-                    endString = ';'
-                    sipString = find_between(sip, startString, endString)
-                    dialString = str('originate {contact=' + contact + ',userExtension=' + userExtension + ',userID=' + userID + '}sofia/internal/' + sipString + ' 223')
-                    print(dialString)
-                    con.api(dialString)
+            dialString = str('originate {contact=' + contact + ',userExtension=' + userExtension + ',userID=' + userID + '}sofia/internal/' + user + '@127.0.0.1:5050 223')
+            print(dialString)
+            con.api(dialString)
  
  
 if __name__ == '__main__':

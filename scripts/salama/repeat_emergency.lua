@@ -23,7 +23,7 @@ confirmationRequest = session:playAndGetDigits(1, 1, 3, 7000, "#", "ivr/press-on
 tries = 0;
 if confirmationRequest == "1" then
   session:sleep(500);
-  session:execute("playback", "/var/freeswitch-audio/salama/emergency-${newContact}.wav");
+  session:execute("playback", "/var/freeswitch-audio/salama/emergency-" .. newContact .. "}.wav");
   hangup_call()
 else
   tries = tries + 1;

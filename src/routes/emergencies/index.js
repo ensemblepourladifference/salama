@@ -77,7 +77,8 @@ exports.register = (server, options, next) => {
                     id: Joi.string()
                 },
                 payload: {
-                    cancelled: Joi.string()
+                    cancelled: Joi.string(),
+                    contacted: Joi.string()
                 }
             }
         },

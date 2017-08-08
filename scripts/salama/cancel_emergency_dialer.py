@@ -48,7 +48,7 @@ def main(argv):
         print(userExtension)
         emergencyContacts = toBeContacted.split(',')
         for user in emergencyContacts:
-            dialString = str('originate {contact=' + contact + ',userExtension=' + userExtension + ',userID=' + userID + '}sofia/internal/' + user + '@127.0.0.1:5050 223')
+            dialString = str('originate {contact=' + user + ',userExtension=' + userExtension + ',userID=' + userID + '}sofia/internal/' + user + '@127.0.0.1:5050 223')
             print(dialString)
             con.api(dialString)
  

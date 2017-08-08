@@ -2,7 +2,7 @@
   <extension name="salama_repeat_emergency">
     <condition field="destination_number" expression="^114$">
       <action application="answer"/>
-      <action application="set" data="default_language=en"/>
+      <action application="set" data="default_language=fr"/>
       <action application="set" data="base_dir=$${base_dir}"/>
       <action application="lua" data="$${base_dir}/scripts/salama/repeat_emergency.lua"/>
     </condition>

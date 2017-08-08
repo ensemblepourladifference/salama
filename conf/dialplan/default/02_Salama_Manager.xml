@@ -2,7 +2,7 @@
   <extension name="salama_signup">
     <condition field="destination_number" expression="^333$">
       <action application="answer"/>
-      <action application="set" data="default_language=en"/>
+      <action application="set" data="default_language=fr"/>
       <action application="set" data="username=${username}"/>
       <action application="set" data="base_dir=$${base_dir}"/>
       <action application="lua" data="$${base_dir}/scripts/salama/salama_manager.lua"/>

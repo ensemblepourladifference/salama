@@ -1,7 +1,7 @@
 contact = session:getVariable("contact")
 userExtension = session:getVariable("userExtension")
 userID = session:getVariable("userID")
-JSON = loadfile(base_dir .. "/scripts/utils/JSON.lua")()
+JSON = loadfile("/usr/scripts/utils/JSON.lua")()
 
 function hangup_call ()
   session:sleep(250)
@@ -28,19 +28,17 @@ session:execute("curl", "http://localhost:4000/api/emergencies/".. userID);
 resCode = session:getVariable("curl_response_code");
 resJSONString = session:getVariable("curl_response_data");
 resTable = JSON:decode(resJSONString);
-newString = resTable.emergency.contacted..","..contact
-session:execute("curl", "http://localhost:4000/api/emergencies/"..userID.." contacted="..newString);
+if resTable.emergency.contacted then 
+  session:consoleLog("info", "Lua variable resTable: ".. resTable.emergency.contacted .. "\n")
+  newString = resTable.emergency.contacted ..",".. contact
+else
+  newString = contact
+end
+session:execute("curl", "http://localhost:4000/api/emergencies/"..userID.." content-type 'application/x-www-form-urlencoded' put &contacted=" ..newString .. "&");
 resCodeEmergencyUpdate = session:getVariable("curl_response_code")
 resJSONEmergencyUpdate = session:getVariable("curl_response_data")
 resTableEmergencyUpdate = JSON:decode(resJSONEmergencyUpdate)
 session:consoleLog("info", "Lua variable resCodeEmergencyUpdate: ".. resCodeEmergencyUpdate .. "\n")
 session:consoleLog("info", "Lua variable resJSONEmergencyUpdate: ".. resJSONEmergencyUpdate .. "\n")
 session:consoleLog("info", "Lua variable resTableEmergencyUpdate.message: ".. resTableEmergencyUpdate.message .. "\n")
-playAgainRequest = session:playAndGetDigits(1, 1, 3, 7000, "#", "file_string://ivr/press.wav!digits/1.wav!ivr/6-5.wav!ivr/press.wav!digits/2.wav!ivr/1-10b.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
-if playAgainRequest == "1" then
-  session:sleep(500);
-  session:execute("playback", "/var/freeswitch-audio/salama/emergency-${userExtension}.wav");
-  hangup_call()
-else
-  hangup_call()
-end
+hangup_call()

@@ -2,7 +2,7 @@
   <extension name="salama_emergency">
     <condition field="destination_number" expression="^111$">
       <action application="answer"/>
-      <action application="set" data="default_language=en"/>
+      <action application="set" data="default_language=fr"/>
       <action application="playback" data="ivr/3-1.wav"/>
       <action application="playback" data="ivr/to-finish-record-press-star.wav"/>
       <action application="set" data="playback_terminators=*"/>

@@ -2,7 +2,7 @@
   <extension name="salama_manager_new_user">
     <condition field="destination_number" expression="^337$">
       <action application="answer"/>
-      <action application="set" data="default_language=en"/>
+      <action application="set" data="default_language=fr"/>
       <action application="ivr" data="salama_manager_ivr"/>
     </condition>
   </extension>

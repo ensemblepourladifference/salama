@@ -1,6 +1,8 @@
 <macro name="salama_manager_greeting">
   <input pattern="^(long)$" break-on-match="true">
     <match>
+      <action function="sleep"
+        data="500"/>
       <action function="play-file"
         data="ivr/1-1-this-is-salama.wav"/>
       <action function="sleep"
@@ -35,6 +37,8 @@
   </input>
   <input pattern="^(short)$">
     <match>
+      <action function="sleep"
+        data="500"/>
       <action function="play-file"
         data="ivr/1-1-this-is-salama.wav"/>
       <action function="sleep"

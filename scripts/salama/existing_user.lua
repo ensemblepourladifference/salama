@@ -117,7 +117,7 @@ if ((hearOrAddRequest == "2")) then
   tries = 0;
   while tries < 3 do
     --<min> <max> <tries> <timeout> <terminators> <file> <invalid_file> <var_name> <regexp> <digit_timeout> <transfer_on_failure>
-    newContact = session:playAndGetDigits(5, 6, 3, 7000, "#", "ivr/1-6.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
+    newContact = session:playAndGetDigits(11, 12, 3, 7000, "#", "ivr/1-6.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
     session:consoleLog("info", "Lua variable newContact: ".. newContact .. "\n");
     session:sleep(500);
     session:execute("playback", "phrase:whoami:".. newContact);

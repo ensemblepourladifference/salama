@@ -16,7 +16,7 @@ end
 session:execute("playback", "ivr/1-1-this-is-salama.wav");
 session:sleep(500);
 
-newContact = session:playAndGetDigits(5, 6, 3, 7000, "#", "ivr/10-2.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
+newContact = session:playAndGetDigits(11, 12, 3, 7000, "#", "ivr/10-2.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
 session:consoleLog("info", "Lua variable newContact: ".. newContact .. "\n");
 session:sayPhrase("saynumber", newContact, "en")
 confirmationRequest = session:playAndGetDigits(1, 1, 3, 7000, "#", "ivr/press-one-confirm-two-try-again.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");

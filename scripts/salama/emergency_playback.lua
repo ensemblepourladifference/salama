@@ -29,7 +29,7 @@ resCode = session:getVariable("curl_response_code");
 resJSONString = session:getVariable("curl_response_data");
 resTable = JSON:decode(resJSONString);
 if resTable.emergency.contacted then 
-  session:consoleLog("info", "Lua variable resTable: ".. resTable.emergency.contacted .. "\n")
+  session:consoleLog("debug", "Lua variable resTable: ".. resTable.emergency.contacted .. "\n")
   newString = resTable.emergency.contacted ..",".. contact
 else
   newString = contact
@@ -38,7 +38,7 @@ session:execute("curl", "http://localhost:4000/api/emergencies/"..userID.." cont
 resCodeEmergencyUpdate = session:getVariable("curl_response_code")
 resJSONEmergencyUpdate = session:getVariable("curl_response_data")
 resTableEmergencyUpdate = JSON:decode(resJSONEmergencyUpdate)
-session:consoleLog("info", "Lua variable resCodeEmergencyUpdate: ".. resCodeEmergencyUpdate .. "\n")
-session:consoleLog("info", "Lua variable resJSONEmergencyUpdate: ".. resJSONEmergencyUpdate .. "\n")
-session:consoleLog("info", "Lua variable resTableEmergencyUpdate.message: ".. resTableEmergencyUpdate.message .. "\n")
+session:consoleLog("debug", "Lua variable resCodeEmergencyUpdate: ".. resCodeEmergencyUpdate .. "\n")
+session:consoleLog("debug", "Lua variable resJSONEmergencyUpdate: ".. resJSONEmergencyUpdate .. "\n")
+session:consoleLog("debug", "Lua variable resTableEmergencyUpdate.message: ".. resTableEmergencyUpdate.message .. "\n")
 hangup_call()

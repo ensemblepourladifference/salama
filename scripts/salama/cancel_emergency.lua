@@ -13,9 +13,9 @@ end
 
 --duplicate recording for audit trail
 executeCommand = "sh "..deleteScript.." emergency-".. userExtension ..".wav "
-session:consoleLog("info", "executeCommand is: "..executeCommand)
+session:consoleLog("debug", "executeCommand is: "..executeCommand)
 deleteCmd = os.execute(executeCommand)
-session:consoleLog("info", deleteCmd)
+session:consoleLog("debug", deleteCmd)
 
 
 function cancelEmergency(userExtension)
@@ -25,26 +25,26 @@ function cancelEmergency(userExtension)
   resCodeUserGet = session:getVariable("curl_response_code")
   resJSONUserGet = session:getVariable("curl_response_data")
   resTableUserGet = JSON:decode(resJSONUserGet)
-  session:consoleLog("info", "Lua variable resCodeUserGet: ".. resCodeUserGet .. "\n")
-  session:consoleLog("info", "Lua variable resJSONUserGet: ".. resJSONUserGet .. "\n")
-  session:consoleLog("info", "Lua variable resTableUserGet.message: ".. resTableUserGet.message .. "\n")
-  session:consoleLog("info", "New user! ID is: "..resTableUserGet.user.id);
+  session:consoleLog("debug", "Lua variable resCodeUserGet: ".. resCodeUserGet .. "\n")
+  session:consoleLog("debug", "Lua variable resJSONUserGet: ".. resJSONUserGet .. "\n")
+  session:consoleLog("debug", "Lua variable resTableUserGet.message: ".. resTableUserGet.message .. "\n")
+  session:consoleLog("debug", "New user! ID is: "..resTableUserGet.user.id);
   -- loop through contacts and prepare emergency dialplan
   toBeContacted = ""
   contactCount = 0
   for i, val in ipairs(resTableUserGet["user"]["dialplans"]) do
     contactCount = contactCount + 1
-    session:consoleLog("info", "i: "..i);
+    session:consoleLog("debug", "i: "..i);
     toBeContacted = toBeContacted ..val["extensions"]..","
   end
   if (contactCount == 0) then
     session:sleep(250)
     session:streamFile("ivr/3-1c.wav")
     toBeContacted = "1030"
-    session:consoleLog("info", "toBeContacted set to administrator numnber: " ..toBeContacted);
+    session:consoleLog("debug", "toBeContacted set to administrator numnber: " ..toBeContacted);
   else
     toBeContacted = toBeContacted:sub(1, -2)
-    session:consoleLog("info", "toBeContacted is: " ..toBeContacted);
+    session:consoleLog("debug", "toBeContacted is: " ..toBeContacted);
   end
   -- get emergency
   userID = resTableUserGet.user.id
@@ -60,12 +60,12 @@ function cancelEmergency(userExtension)
   resCodeEmergPost = session:getVariable("curl_response_code");
   resJSONEmergPost = session:getVariable("curl_response_data");
   resTableEmergPost = JSON:decode(resJSONEmergPost);
-  session:consoleLog("info", "Lua variable resCodeEmergPost: ".. resCodeEmergPost .. "\n");
-  session:consoleLog("info", "Lua variable resJSONEmergPost: ".. resJSONEmergPost .. "\n");
-  session:consoleLog("info", "Lua variable resTableEmergPost.message: ".. resTableEmergPost.message .. "\n");
+  session:consoleLog("debug", "Lua variable resCodeEmergPost: ".. resCodeEmergPost .. "\n");
+  session:consoleLog("debug", "Lua variable resJSONEmergPost: ".. resJSONEmergPost .. "\n");
+  session:consoleLog("debug", "Lua variable resTableEmergPost.message: ".. resTableEmergPost.message .. "\n");
 
   executeEmergencyCommand = "python "..cancelEmergencyDialerScript.." ".. userID .." "..toBeContacted.." "..userExtension
-  session:consoleLog("info", "executeEmergencyCommand is: "..executeEmergencyCommand)
+  session:consoleLog("debug", "executeEmergencyCommand is: "..executeEmergencyCommand)
   emergCmd = os.execute(executeEmergencyCommand)
 
   session:sleep(250)

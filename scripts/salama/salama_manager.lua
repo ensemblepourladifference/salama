@@ -6,9 +6,9 @@ responseCode = session:getVariable("curl_response_code");
 responseJSONString = session:getVariable("curl_response_data");
 responseTable = JSON:decode(responseJSONString);
 -- if curl_response_code == 404 no user exists, create new one else edit existing
-session:consoleLog("info", "Lua variable curl_response_code: ".. responseCode .. "\n");
-session:consoleLog("info", "Lua variable curl_response: ".. responseJSONString .. "\n");
-session:consoleLog("info", "Lua variable responseTable.message: ".. responseTable.message .. "\n");
+session:consoleLog("debug", "Lua variable curl_response_code: ".. responseCode .. "\n");
+session:consoleLog("debug", "Lua variable curl_response: ".. responseJSONString .. "\n");
+session:consoleLog("debug", "Lua variable responseTable.message: ".. responseTable.message .. "\n");
 if responseCode == "400" then
   session:transfer("337")
 else

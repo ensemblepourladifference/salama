@@ -7,7 +7,7 @@
       data="100"/>
       <action function="say"
       data="$1"
-      method="pronounced"
+      method="iterated"
       type="number"/>
     </match>
     <nomatch>

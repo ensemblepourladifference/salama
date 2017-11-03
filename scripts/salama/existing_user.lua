@@ -19,9 +19,9 @@ function addNewDialplan(userID, newContact)
   resCodeDialplanCreate = session:getVariable("curl_response_code");
   resJSONDialplanCreate = session:getVariable("curl_response_data");
   resTableDialplanCreate = JSON:decode(resJSONDialplanCreate);
-  session:consoleLog("info", "Lua variable resCodeDialplanCreate: ".. resCodeDialplanCreate .. "\n");
-  session:consoleLog("info", "Lua variable resJSONDialplanCreate: ".. resJSONDialplanCreate .. "\n");
-  session:consoleLog("info", "Lua variable resTableDialplanCreate.message: ".. resTableDialplanCreate.message .. "\n");
+  session:consoleLog("debug", "Lua variable resCodeDialplanCreate: ".. resCodeDialplanCreate .. "\n");
+  session:consoleLog("debug", "Lua variable resJSONDialplanCreate: ".. resJSONDialplanCreate .. "\n");
+  session:consoleLog("debug", "Lua variable resTableDialplanCreate.message: ".. resTableDialplanCreate.message .. "\n");
   session:sleep(500);
   --Would you like to add another?
   session:execute("playback", "ivr/1-9.wav");
@@ -48,7 +48,7 @@ function addNewDialplan(userID, newContact)
     session:sleep(500);
     hangup_call();
   else
-    session:consoleLog("info", "Add another loop");
+    session:consoleLog("debug", "Add another loop");
   end
 end
 
@@ -60,14 +60,14 @@ end
 
 function playOrDelete(counter,table)
   session:sleep(250);
-  session:consoleLog("info", "Extension in table: ".. table[counter]["extensions"] .. "\n");
+  session:consoleLog("debug", "Extension in table: ".. table[counter]["extensions"] .. "\n");
   session:streamFile("ivr/2-3.wav")
   session:sayPhrase("saynumber", table[counter]["extensions"], "en")
   session:sleep(500);
   deleteRequest = session:playAndGetDigits(1, 1, 3, 7000, "#", "file_string://ivr/press.wav!digits/1.wav!ivr/2-4a.wav!ivr/press.wav!digits/2.wav!ivr/2-4b.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
-  session:consoleLog("info", "Lua variable deleteRequest: ".. deleteRequest .. "\n");
+  session:consoleLog("debug", "Lua variable deleteRequest: ".. deleteRequest .. "\n");
   if deleteRequest == "1" then
-    session:consoleLog("info", "should go to next thing");
+    session:consoleLog("debug", "should go to next thing");
     return deleteRequest
   else
     session:sleep(500);
@@ -118,7 +118,7 @@ if ((hearOrAddRequest == "2")) then
   while tries < 3 do
     --<min> <max> <tries> <timeout> <terminators> <file> <invalid_file> <var_name> <regexp> <digit_timeout> <transfer_on_failure>
     newContact = session:playAndGetDigits(11, 12, 3, 7000, "#", "ivr/1-6.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");
-    session:consoleLog("info", "Lua variable newContact: ".. newContact .. "\n");
+    session:consoleLog("debug", "Lua variable newContact: ".. newContact .. "\n");
     session:sleep(500);
     session:execute("playback", "phrase:whoami:".. newContact);
     confirmationRequest = session:playAndGetDigits(1, 1, 3, 7000, "#", "ivr/press-one-confirm-two-try-again.wav", "ivr/ivr-that_was_an_invalid_entry.wav", "\\d+");

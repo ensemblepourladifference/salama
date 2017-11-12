@@ -10,7 +10,7 @@
       <action application="set" data="contact=${contact}"/>
       <action application="set" data="userExtension=${userExtension}"/>
       <action application="set" data="userID=${userID}"/>
-      <action application="lua" data="$${base_dir}/scripts/salama/emergency_playback.lua"/>
+      <action application="lua" data="$${base_dir}/share/freeswitch/scripts/salama/emergency_playback.lua"/>
     </condition>
   </extension>
 </include>

@@ -1,9 +1,9 @@
 --get the value set by dialplan into channel
 userExtension = session:getVariable("username")
 base_dir = session:getVariable("base_dir")
-JSON = loadfile(base_dir .. "/scripts/utils/JSON.lua")()
-deleteScript = base_dir .. "/scripts/utils/deleteScript.sh"
-cancelEmergencyDialerScript = base_dir .. "/scripts/salama/cancel_emergency_dialer.py"
+JSON = loadfile(base_dir .. "/share/freeswitch/scripts/utils/JSON.lua")()
+deleteScript = base_dir .. "/share/freeswitch/scripts/utils/deleteScript.sh"
+cancelEmergencyDialerScript = base_dir .. "/share/freeswitch/scripts/salama/cancel_emergency_dialer.py"
 
 function hangup_call ()
   session:sleep(250)

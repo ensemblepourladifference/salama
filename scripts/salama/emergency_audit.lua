@@ -1,9 +1,9 @@
 --get the value set by dialplan into channel
 userExtension = session:getVariable("username")
 base_dir = session:getVariable("base_dir")
-JSON = loadfile(base_dir .. "/scripts/utils/JSON.lua")()
-copyScript = base_dir .. "/scripts/utils/copyScript.sh"
-emergencyDialerScript = base_dir .. "/scripts/salama/emergency_dialer.py"
+JSON = loadfile(base_dir .. "/share/freeswitch/scripts/utils/JSON.lua")()
+copyScript = base_dir .. "/share/freeswitch/scripts/utils/copyScript.sh"
+emergencyDialerScript = base_dir .. "/share/freeswitch/scripts/salama/emergency_dialer.py"
 luaDate = string.gsub(os.date("!%c"), ":", "-")
 luaDateWithoutSpaces = string.gsub(luaDate, "%s+", "-")
 auditFile = "emergency-".. userExtension .."-" .. luaDateWithoutSpaces ..".wav"

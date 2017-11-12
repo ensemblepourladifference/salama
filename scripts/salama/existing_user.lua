@@ -1,6 +1,6 @@
 userExtension = session:getVariable("username");
 base_dir = session:getVariable("base_dir");
-JSON = loadfile(base_dir .. "/scripts/utils/JSON.lua")()
+JSON = loadfile(base_dir .. "/share/freeswitch/scripts/utils/JSON.lua")()
 session:execute("curl", "http://localhost:4000/api/users/".. userExtension);
 responseCode = session:getVariable("curl_response_code");
 responseJSONString = session:getVariable("curl_response_data");

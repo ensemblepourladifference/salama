@@ -1,7 +1,7 @@
 --get the value set by dialplan into channel
 userExtension = session:getVariable("username");
 base_dir = session:getVariable("base_dir");
-JSON = loadfile(base_dir .. "/scripts/utils/JSON.lua")()
+JSON = loadfile(base_dir .. "/share/freeswitch/scripts/utils/JSON.lua")()
 
 function hangup_call ()
   session:streamFile("ivr/thank-you.wav")

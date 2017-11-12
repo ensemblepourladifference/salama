@@ -5,7 +5,7 @@
       <action application="set" data="default_language=fr"/>
       <action application="set" data="username=${username}"/>
       <action application="set" data="base_dir=$${base_dir}"/>
-      <action application="lua" data="$${base_dir}/scripts/salama/existing_user.lua"/>
+      <action application="lua" data="$${base_dir}/share/freeswitch/scripts/salama/existing_user.lua"/>
     </condition>
   </extension>
 </include>

@@ -1,7 +1,7 @@
 contact = session:getVariable("contact")
 userExtension = session:getVariable("userExtension")
 userID = session:getVariable("userID")
-JSON = loadfile("/usr/scripts/utils/JSON.lua")()
+JSON = loadfile("/usr/share/freeswitch/scripts/utils/JSON.lua")()
 
 function hangup_call ()
   session:sleep(250)

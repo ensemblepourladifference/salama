@@ -38,6 +38,7 @@
 /conf/vars.xml
 /conf/voicemail.tpl
 /conf/web-vm.tpl
+/salama-sound-source-files
 
 # dependencies
 /node_modules

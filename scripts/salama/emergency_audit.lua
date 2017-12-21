@@ -57,6 +57,10 @@ function addNewEmergency(userExtension, auditFile)
   session:consoleLog("debug", "Lua variable resCodeEmergPost: ".. resCodeEmergPost .. "\n");
   session:consoleLog("debug", "Lua variable resJSONEmergPost: ".. resJSONEmergPost .. "\n");
   session:consoleLog("debug", "Lua variable resTableEmergPost.message: ".. resTableEmergPost.message .. "\n");
+  session:consoleLog("debug", "Lua variable emergencyDialerScript: ".. emergencyDialerScript .. "\n");
+  session:consoleLog("debug", "Lua variable userID: ".. userID .. "\n");
+  session:consoleLog("debug", "Lua variable toBeContacted: ".. toBeContacted .. "\n");
+  session:consoleLog("debug", "Lua variable userExtension: ".. userExtension .. "\n");
   executeEmergencyCommand = "python "..emergencyDialerScript.." ".. userID .." "..toBeContacted.." "..userExtension
   session:consoleLog("debug", "executeEmergencyCommand is: "..executeEmergencyCommand)
   emergCmd = os.execute(executeEmergencyCommand)

@@ -7,8 +7,7 @@ from optparse import OptionParser
 import sys
 from xml.etree import ElementTree
 import ESL
-import logging
-logging.basicConfig(filename='caller-log.log',level=logging.DEBUG)
+print 'hi'
 
 def find_between( s, first, last ):
     try:
@@ -35,22 +34,22 @@ def main(argv):
     con = ESL.ESLconnection(options.server, options.port, options.auth)
  
     if not con.connected():
-        logging.debug('Not Connected')
+        print 'Not Connected'
         sys.exit(2)
 
     e = con.api(options.command)
     if e:
-        logging.debug(e.getBody())
+        print e.getBody()
         userID = sys.argv[1]
         toBeContacted = sys.argv[2]
         userExtension = sys.argv[3]
-        logging.debug(userID)
-        logging.debug(toBeContacted)
-        logging.debug(userExtension)
+        print userID
+        print toBeContacted
+        print userExtension
         emergencyContacts = toBeContacted.split(',')
         for user in emergencyContacts:
             dialString = str('originate {contact=' + user + ',userExtension=' + userExtension + ',userID=' + userID + '}sofia/internal/' + user + '@127.0.0.1:5062 113')
-            logging.debug(dialString)
+            print dialString
             con.api(dialString)
  
  

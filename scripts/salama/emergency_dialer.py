@@ -25,7 +25,7 @@ def main(argv):
                       help='ESL password')
     parser.add_option('-s', '--server', dest='server', default='127.0.0.1',
                       help='FreeSWITCH server IP address')
-    parser.add_option('-p', '--port', dest='port', default='5062',
+    parser.add_option('-p', '--port', dest='port', default='8021',
                       help='FreeSWITCH server event socket port')
     parser.add_option('-c', '--command', dest='command', default='status',
                       help='command to run, surround multi-word commands in ""s')

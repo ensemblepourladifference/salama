@@ -1,5 +1,6 @@
 #!/usr/bin/env python
- 
+
+print '1'
 '''
 single_command.py - execute a single command over ESL
 '''
